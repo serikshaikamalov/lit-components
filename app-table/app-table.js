@@ -47,6 +47,12 @@ export class AppTable extends LitElement {
       thead > tr {
         border-bottom: 1px solid #ddd;
       }
+
+      @media screen and (max-width: 768px) {
+        .no-mobile {
+          display: none;
+        }
+      }
     `,
   ];
 
@@ -56,6 +62,7 @@ export class AppTable extends LitElement {
       data: { type: Array },
 
       columnHeaders: { type: Array },
+      hideColumnsOnMobile: { type: Array },
     };
   }
 
@@ -65,6 +72,7 @@ export class AppTable extends LitElement {
     this.columnConfig = [];
     this.data = [];
     this.columnHeaders = [];
+    this.hideColumnsOnMobile = [];
   }
 
   connectedCallback() {
@@ -90,7 +98,11 @@ export class AppTable extends LitElement {
           ${this.data.map((item) => {
             return html`<tr>
               ${this.columnConfig.map(({ key, label, formatter, render }) => {
-                return html`<td>
+                return html`<td
+                  class=${this.hideColumnsOnMobile.includes(key)
+                    ? "no-mobile"
+                    : ""}
+                >
                   ${render
                     ? render(item)
                     : typeof formatter === "function"

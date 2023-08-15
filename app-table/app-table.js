@@ -56,6 +56,10 @@ export class AppTable extends LitElement {
     `,
   ];
 
+  createRenderRoot() {
+    return this
+  }
+
   static get properties() {
     return {
       columnConfig: { type: Array },

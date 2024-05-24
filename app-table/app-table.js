@@ -18,21 +18,23 @@ export class AppTable extends LitElement {
       .app-table {        
         border-collapse: collapse;
         border-spacing: 0;
-        width: 100%;
-        border: 1px solid #ddd;        
+        width: 100%;         
       }
       th,
       td {
         border-top: 1px solid rgb(222, 226, 230);
         line-height: 1.5;
         text-align: left;
-        padding: 8px;
+        padding: 8px;      
       }
       tr{
         background-color: var(--background-color, rgb(229, 240, 252))
       }
       thead > tr {
         border-bottom: 1px solid #ddd;
+      }            
+      td{
+        font-weight: normal
       }      
 
       @media screen and (max-width: 768px) {

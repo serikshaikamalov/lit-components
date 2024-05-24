@@ -2,6 +2,15 @@
 
 ## Table component
 
+Desktop view
+<img width="1440" alt="image" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/e3434624-fdf1-4523-b46d-3d82fbf74b94">
+
+
+Mobile/Tablet view
+![image](https://github.com/serikshaikamalov/lit-components/assets/11631958/b4c384ad-a266-4079-a0cb-a94ed8fdd395)
+
+
+
 1. The component requires two properties:
 
 - columnConfig. This is representaion of your entity.

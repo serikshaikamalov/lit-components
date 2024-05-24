@@ -19,8 +19,7 @@ export class AppTable extends LitElement {
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
-        border: 1px solid #ddd;
-        background-color: var(--background-color, rgb(229, 240, 252))
+        border: 1px solid #ddd;        
       }
       th,
       td {
@@ -29,16 +28,41 @@ export class AppTable extends LitElement {
         text-align: left;
         padding: 8px;
       }
-
+      tr{
+        background-color: var(--background-color, rgb(229, 240, 252))
+      }
       thead > tr {
         border-bottom: 1px solid #ddd;
-      }
+      }      
 
       @media screen and (max-width: 768px) {
         .no-mobile {
           display: none;
         }
+        .app-table thead {
+          display: none !important;
+        }
+        .app-table tr{
+          display: flex !important;
+          flex-direction: column;
+          margin-bottom: 2rem;
+          box-shadow: 0 2px 3px rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.1);
+        }
+        .app-table tr td{
+          display: flex !important;
+          width: auto;
+          justify-content: space-between;
+          text-align: right;
+          border-bottom: 1px solid #f5f5f5;
+        }
+        .app-table tr td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            padding-right: .5rem;
+            text-align: left;
+        }
       }
+      
     `,
   ];
 
@@ -85,6 +109,7 @@ export class AppTable extends LitElement {
       return html`<tr>
               ${this.columnConfig.map(({ key, label, formatter, render }) => {
         return html`<td
+                  data-label=${key}
                   class=${this.hideColumnsOnMobile.includes(key)
             ? "no-mobile"
             : ""}

@@ -19,13 +19,28 @@ class WYSIWYGEditorExample extends LitElement {
     }
 
     onChange(v) {
-        console.log("V: ", v);
+        const el = this.renderRoot.querySelector('#bio')
+        if (el) {
+            el.value = v
+        }
+    }
+
+    submit(e) {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const formProps = Object.fromEntries(formData)
+        console.log("formProps: ", formProps);
     }
 
     render() {
         return html`
             <div>
-                <wysiwyg-editor .name=${"bio"} .content=${this.content} .onChange=${this.onChange}></wysiwyg-editor>
+                <form @submit=${this.submit}>                                        
+                    <wysiwyg-editor inputmode name="bio" .content=${this.content} .onChange=${this.onChange.bind(this)}>                        
+                    </wysiwyg-editor>                    
+                    <input type="hidden" id="bio" name="bio"/>
+                    <button type="submit">Submit</button>
+                </form>                
             </div>
         `
     }

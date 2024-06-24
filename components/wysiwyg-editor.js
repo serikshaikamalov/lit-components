@@ -46,9 +46,9 @@ class WYSIWYGEditor extends LitElement {
   render() {
     return html`
       <div class="toolbar">
-        <button @click="${() => this.execCmd('bold')}" data-command="bold">Bold</button>
-        <button @click="${() => this.execCmd('italic')}" data-command="italic">Italic</button>
-        <button @click="${() => this.execCmd('underline')}" data-command="underline">Underline</button>        
+        <button @click="${() => this.execCmd('bold')}">Bold</button>
+        <button @click="${() => this.execCmd('italic')}">Italic</button>
+        <button @click="${() => this.execCmd('underline')}">Underline</button>        
         <button @click="${() => this.execCmd('createLink', prompt('Enter the URL', 'http://'))}">Link</button>
       </div>
       <div
@@ -57,8 +57,7 @@ class WYSIWYGEditor extends LitElement {
         contenteditable="true"
         name="editor"
         @input="${this._updateContent}"
-      ></div>
-      <input type="hidden" id=${this.name} name=${this.name}></input>
+      ></div>            
     `;
   }
 
@@ -67,10 +66,6 @@ class WYSIWYGEditor extends LitElement {
   }
   _updateContent(event) {
     this.content = event.target.innerHTML;
-    const el = this.renderRoot.querySelector(`#${this.name}`)
-    if (el) {
-      el.value = this.content
-    }
     if (this.onChange) {
       this.onChange(this.content)
     }

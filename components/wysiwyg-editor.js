@@ -67,7 +67,7 @@ class WYSIWYGEditor extends LitElement {
   _updateContent(event) {
     this.content = event.target.innerHTML;
     if (this.onChange) {
-      this.onChange(this.content)
+      this.onChange(this.content, this.name)
     }
   }
 }

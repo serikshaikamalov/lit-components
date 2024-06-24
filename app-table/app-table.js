@@ -1,31 +1,5 @@
 import { html, css, LitElement } from "https://cdn.jsdelivr.net/npm/lit@2/+esm";
-
-const get = (item, keyArrayAsString) => {
-  if (!keyArrayAsString) return;
-  const keys = keyArrayAsString.split(".");
-  const key = keys.shift();
-
-  if (keys.length === 0) {
-    return item[key];
-  }
-
-  return get(item[key], keys.join("."));
-};
-
-const toCamelCase = (label) => {
-  if (!label) return ''
-  label = String(label)
-
-  /**
-   * @description converts word to camelCase format   
-   * input: "word"
-   * output: "Word"      
-   */
-  const convert = (word = "") => {
-    return word.split('').map((l, inx) => inx === 0 ? l.toUpperCase() : l).join('')
-  }
-  return String(label).replace(new RegExp(/#|-/i), ' ').split(' ').map((word, wordIndex) => wordIndex === 0 ? word.toLowerCase() : convert(word)).join('')
-}
+import { get, toCamelCase } from "../utils/utils.js";
 
 export class AppTable extends LitElement {
   static styles = [

@@ -58,6 +58,7 @@ class WYSIWYGEditor extends LitElement {
         name="editor"
         @input="${this._updateContent}"
       ></div>
+      <input type="hidden" id=${this.name} name=${this.name}></input>
     `;
   }
 
@@ -66,6 +67,10 @@ class WYSIWYGEditor extends LitElement {
   }
   _updateContent(event) {
     this.content = event.target.innerHTML;
+    const el = this.renderRoot.querySelector(`#${this.name}`)
+    if (el) {
+      el.value = this.content
+    }
     if (this.onChange) {
       this.onChange(this.content)
     }

@@ -12,6 +12,21 @@ const get = (item, keyArrayAsString) => {
   return get(item[key], keys.join("."));
 };
 
+const toCamelCase = (label) => {
+  if (!label) return ''
+  label = String(label)
+
+  /**
+   * @description converts word to camelCase format   
+   * input: "word"
+   * output: "Word"      
+   */
+  const convert = (word = "") => {
+    return word.split('').map((l, inx) => inx === 0 ? l.toUpperCase() : l).join('')
+  }
+  return String(label).replace(new RegExp(/#|-/i), ' ').split(' ').map((word, wordIndex) => wordIndex === 0 ? word.toLowerCase() : convert(word)).join('')
+}
+
 export class AppTable extends LitElement {
   static styles = [
     css`    
@@ -96,6 +111,9 @@ export class AppTable extends LitElement {
         <thead>
           <tr>
             ${this.columnConfig.map(({ label, key }) => {
+      if (!key) {
+        key = toCamelCase(label)
+      }
       return html`<th
                 class=${this.hideColumnsOnMobile.includes(key)
           ? "no-mobile"
@@ -110,6 +128,9 @@ export class AppTable extends LitElement {
           ${this.data.map((item, index) => {
       return html`<tr>
               ${this.columnConfig.map(({ key, label, formatter, render }) => {
+        if (!key) {
+          key = toCamelCase(label)
+        }
         return html`<td
                   data-label=${key}
                   class=${this.hideColumnsOnMobile.includes(key)

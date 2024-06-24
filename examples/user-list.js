@@ -35,8 +35,7 @@ export class UsersList extends LitElement {
                 label: "Role",
             },
             {
-                key: "createdAt",
-                label: "Created",
+                label: "Created At",
                 formatter: (v) => new Date(v).toLocaleString()
             }
         ]

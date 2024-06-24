@@ -3,7 +3,7 @@ import {
     LitElement,
     css
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
-import '../app-table/app-table.js'
+import '../../app-table/app-table.js'
 
 export class UsersList extends LitElement {
 

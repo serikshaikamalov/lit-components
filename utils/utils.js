@@ -57,5 +57,6 @@ export const toCamelCase = (label) => {
     const convert = (word = "") => {
         return word.split('').map((l, inx) => inx === 0 ? l.toUpperCase() : l).join('')
     }
-    return String(label).replace(new RegExp(/#|-/i), ' ').split(' ').map((word, wordIndex) => wordIndex === 0 ? word.toLowerCase() : convert(word)).join('')
+    const regex = /[^a-zA-Z0-9]/g;
+    return String(label).replace(regex, '').split(' ').map((word, wordIndex) => wordIndex === 0 ? word.toLowerCase() : convert(word)).join('')
 }

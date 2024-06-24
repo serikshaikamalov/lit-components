@@ -19,6 +19,7 @@ class WYSIWYGEditor extends LitElement {
   static get properties() {
     return {
       content: { type: String },
+      name: { type: String },
       onChange: { type: Function }
     };
   }
@@ -26,6 +27,7 @@ class WYSIWYGEditor extends LitElement {
   constructor() {
     super();
     this.content = ''
+    this.name = ''
     this.onChange = () => { }
   }
 
@@ -53,6 +55,7 @@ class WYSIWYGEditor extends LitElement {
         id="editor"
         class="editor"
         contenteditable="true"
+        name="editor"
         @input="${this._updateContent}"
       ></div>
     `;

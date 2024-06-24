@@ -25,7 +25,7 @@ class WYSIWYGEditorExample extends LitElement {
     render() {
         return html`
             <div>
-                <wysiwyg-editor .content=${this.content} .onChange=${this.onChange}></wysiwyg-editor>
+                <wysiwyg-editor .name=${"bio"} .content=${this.content} .onChange=${this.onChange}></wysiwyg-editor>
             </div>
         `
     }

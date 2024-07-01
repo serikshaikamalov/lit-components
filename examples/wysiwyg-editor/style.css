@@ -1,0 +1,8 @@
+@import url(theme.light.css) (prefers-color-scheme: light);
+@import url(theme.dark.css) (prefers-color-scheme: dark);
+
+
+:root {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}

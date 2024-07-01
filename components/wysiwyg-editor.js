@@ -1,7 +1,7 @@
 import { html, css, LitElement } from "https://cdn.jsdelivr.net/npm/lit@2/+esm";
 
 class WYSIWYGEditor extends LitElement {
-  static styles = css`
+  static styles = css`    
     .editor {
       border: 1px solid #ccc;
       padding: 10px;
@@ -21,6 +21,10 @@ class WYSIWYGEditor extends LitElement {
     .toolbar svg{
       width: 1rem;
       height: 1rem;
+    }
+
+    svg{
+      fill: var(--text-color, --md-sys-color-on-background)
     }
   `;
 

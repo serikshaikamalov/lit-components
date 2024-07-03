@@ -25,12 +25,12 @@ This reusable table component is simple and can be expanded with additional feat
 - Mobile/Tablet view
   <img width="500" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/b4c384ad-a266-4079-a0cb-a94ed8fdd395"/>
 
-1. The component requires two properties:
+The component requires two properties:
 
 - columnConfig. This is representaion of your entity.
 - data. List of data that should be displayed in table
 
-## Full example:
+## Usage:
 
 ```js
 import { LitElement, html, css } from "lit";
@@ -92,3 +92,8 @@ export class MovieList extends LitElement {
 }
 customElements.define("movie-list", MovieList);
 ```
+
+In this example:
+
+tableConfig defines the columns with optional formatter and render functions.
+data contains the rows of the table.

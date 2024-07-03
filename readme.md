@@ -95,5 +95,6 @@ customElements.define("movie-list", MovieList);
 
 In this example:
 
-tableConfig defines the columns with optional formatter and render functions.
-data contains the rows of the table.
+- **tableConfig** defines the columns with optional **formatter** and **render** functions.
+
+- **data** contains the rows of the table.

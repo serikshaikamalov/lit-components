@@ -106,3 +106,29 @@ In this example:
 # Snippets
 
 ## How to deal with dark/light mode
+
+## EventTarget as a global storage
+
+Why to use it?
+
+- A way of communication between components
+- Source of the truth
+- Implement subscriber/listener pattern
+
+Interface
+
+```js
+interface EventTarget {
+  addEventListener(
+    type: string,
+    callback: EventListenerOrEventListenerObject | null,
+    options?: AddEventListenerOptions | boolean
+  ): void;
+  dispatchEvent(event: Event): boolean;
+  removeEventListener(
+    type: string,
+    callback: EventListenerOrEventListenerObject | null,
+    options?: EventListenerOptions | boolean
+  ): void;
+}
+```

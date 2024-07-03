@@ -101,6 +101,10 @@ In this example:
 
 ## Dropdown
 
+## Simple form builder
+
+## Pagination
+
 ## Utils
 
 # Snippets

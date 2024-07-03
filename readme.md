@@ -30,7 +30,7 @@ The component requires two properties:
 - columnConfig. This is representaion of your entity.
 - data. List of data that should be displayed in table
 
-## Usage:
+### Usage:
 
 ```js
 import { LitElement, html, css } from "lit";
@@ -98,3 +98,11 @@ In this example:
 - **tableConfig** defines the columns with optional **formatter** and **render** functions.
 
 - **data** contains the rows of the table.
+
+## Dropdown
+
+## Utils
+
+# Snippets
+
+## How to deal with dark/light mode

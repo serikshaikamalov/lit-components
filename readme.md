@@ -107,15 +107,16 @@ In this example:
 
 ## How to deal with dark/light mode
 
-## EventTarget as a global storage
+## EventTarget
 
 Demo: [BasketStorage](https://serikshaikamalov.github.io/lit-components/examples/basket/index.html)
 
-Why to use it?
+When to use it?
 
 - A way of communication between components
 - Source of the truth
 - Implement subscriber/listener pattern
+- Global storage
 
 Usage
 

@@ -15,6 +15,10 @@ Key Features of WYSIWYG:
 
 ## Table component
 
+Demo: [Reusable table component](https://serikshaikamalov.github.io/lit-components/examples/app-table/index.html)
+
+This reusable table component is simple and can be expanded with additional features like sorting, filtering, and pagination. The component is designed to be flexible, allowing it to be used in various parts of an application with different data sets and columns.
+
 - Desktop view
   <img width="1440" alt="image" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/e3434624-fdf1-4523-b46d-3d82fbf74b94">
 
@@ -24,7 +28,7 @@ Key Features of WYSIWYG:
 1. The component requires two properties:
 
 - columnConfig. This is representaion of your entity.
-- data. List of data that should be displayed in a table
+- data. List of data that should be displayed in table
 
 ## Full example:
 

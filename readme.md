@@ -1,20 +1,18 @@
 # Reusable lit components
 
 ## WYSIWYG HTML Editor
-HTML editor is a tool that allows users to create and edit web content in a way that shows how the final product will appear. 
-<img width="1440" alt="image" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/662948e4-483a-4052-8ec6-c8f0771751c4">
 
+[Demo](https://serikshaikamalov.github.io/lit-components/examples/wysiwyg-editor/index.html)
+HTML editor is a tool that allows users to create and edit web content in a way that shows how the final product will appear.
+<img width="1440" alt="image" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/662948e4-483a-4052-8ec6-c8f0771751c4">
 
 ## Table component
 
 - Desktop view
-<img width="1440" alt="image" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/e3434624-fdf1-4523-b46d-3d82fbf74b94">
-
+  <img width="1440" alt="image" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/e3434624-fdf1-4523-b46d-3d82fbf74b94">
 
 - Mobile/Tablet view
-<img width="500" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/b4c384ad-a266-4079-a0cb-a94ed8fdd395"/>
-
-
+  <img width="500" src="https://github.com/serikshaikamalov/lit-components/assets/11631958/b4c384ad-a266-4079-a0cb-a94ed8fdd395"/>
 
 1. The component requires two properties:
 
@@ -78,12 +76,7 @@ export class MovieList extends LitElement {
   }
 
   render() {
-    return html`
-      <app-table
-        .columnConfig=${this.tableConfig}
-        .data=${this.data}
-      ></app-table>
-    `;
+    return html` <app-table .columnConfig=${this.tableConfig} .data=${this.data}></app-table> `;
   }
 }
 customElements.define("movie-list", MovieList);

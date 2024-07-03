@@ -206,3 +206,14 @@ export class Basket extends LitElement {
 }
 customElements.define("app-basket", Basket);
 ```
+
+## Get form values in one shot
+
+```js
+submit(e){
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const formProps = Object.fromEntries(formData)
+    // {a: 1, b: 2}
+}
+```

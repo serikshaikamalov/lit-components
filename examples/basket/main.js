@@ -15,6 +15,7 @@ export class Basket extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         basketStorage.addEventListener("updated", (i) => {
+            console.log("Updated");
             this.items = basketStorage.getItems()
         })
     }
@@ -30,6 +31,10 @@ export class Basket extends LitElement {
         searchNode.value = ""
     }
 
+    remove(i) {
+        basketStorage.removeItem(i)
+    }
+
     render() {
         return html`
             <form @submit=${this.submit}>
@@ -39,7 +44,7 @@ export class Basket extends LitElement {
                 </div>
                 <div>
                     ${this.items ? html`${this.items.map(i => {
-            return html`<div>${i}</div>`
+            return html`<div>${i} <button type="button" @click=${() => this.remove(i)}>remove</button></div>`
         })}` : html`<h2>No items</h2>`}
                 </div>
             </form>

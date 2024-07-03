@@ -19,6 +19,11 @@ export class BasketStorage extends EventTarget {
     getItems() {
         return this.items
     }
+    removeItem(item) {
+        this.items = this.items.filter(i => i != item)
+        console.log("this.items: ", this.items);
+        this.dispatchEvent(new CustomEvent("updated", { detail: { item } }))
+    }
 }
 
 const basketStorage = BasketStorage.getInstance();

@@ -118,9 +118,8 @@ Demo: [BasketStorage](https://serikshaikamalov.github.io/lit-components/examples
 When to use it?
 
 - A way of communication between components
-- Source of the truth
-- Implement subscriber/listener pattern
-- Global storage
+- Source of the truth / Singleton
+- As a global storage
 
 Usage
 

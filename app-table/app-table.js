@@ -3,7 +3,11 @@ import { get, toCamelCase } from "../utils/utils.js";
 
 export class AppTable extends LitElement {
   static styles = [
-    css`    
+    css`
+      a {
+        color: inherit;
+        text-decoration: none;
+      }    
       .app-table {        
         border-collapse: collapse;
         border-spacing: 0;

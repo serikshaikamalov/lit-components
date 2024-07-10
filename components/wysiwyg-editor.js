@@ -54,6 +54,16 @@ class WYSIWYGEditor extends LitElement {
       if (this.content) {
         editor.innerHTML = this.content
       }
+
+
+      editor.addEventListener('paste', (e) => {
+        e.preventDefault();
+
+        console.log("pasing: ", e);
+
+        let text = e.clipboardData.getData('text/plain');
+        document.execCommand('insertText', false, text);
+      });
     }, 1000);
   }
 

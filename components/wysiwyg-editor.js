@@ -15,7 +15,8 @@ class WYSIWYGEditor extends LitElement {
       margin-right: 5px;
       border: none;
       background-color: transparent;
-      cursor: pointer;      
+      cursor: pointer;    
+      color: inherit;  
     }
 
     .toolbar svg{
@@ -26,6 +27,7 @@ class WYSIWYGEditor extends LitElement {
     svg{
       fill: var(--text-color, --md-sys-color-on-background)
     }
+
   `;
 
   static get properties() {

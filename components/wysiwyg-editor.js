@@ -53,13 +53,8 @@ class WYSIWYGEditor extends LitElement {
     const editor = this.renderRoot.querySelector('#editor')
     console.log("firstUpdated() editor ", editor)
 
-    if (this.content) {
-      editor.innerHTML = this.content
-    }
-
     editor.addEventListener('paste', (e) => {
       e.preventDefault();
-
       console.log("pasing: ", e);
 
       let text = e.clipboardData.getData('text/plain');
@@ -70,7 +65,7 @@ class WYSIWYGEditor extends LitElement {
   updated(changedProperties) {
     console.log("updated()", changedProperties);
 
-    if (changedProperties.has('content')) {
+    if (!changedProperties.get('content')) {
       const editor = this.renderRoot.querySelector('#editor')
       editor.innerHTML = this.content || ""
     }

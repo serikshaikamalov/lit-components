@@ -11,11 +11,14 @@ class WYSIWYGEditorExample extends LitElement {
 
     constructor() {
         super()
-        this.content = 'asd <b>Serik</b> <i>Berik<br><br><br></i>'
     }
 
     connectedCallback() {
         super.connectedCallback();
+
+        setTimeout(() => {
+            this.content = `asd <b>Serik</b> <i>Berik<br><br><br></i>`
+        }, 2000);
     }
 
     onChange(v) {

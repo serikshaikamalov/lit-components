@@ -47,24 +47,33 @@ class WYSIWYGEditor extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    setTimeout(() => {
+  }
+
+  firstUpdated() {
+    const editor = this.renderRoot.querySelector('#editor')
+    console.log("firstUpdated() editor ", editor)
+
+    if (this.content) {
+      editor.innerHTML = this.content
+    }
+
+    editor.addEventListener('paste', (e) => {
+      e.preventDefault();
+
+      console.log("pasing: ", e);
+
+      let text = e.clipboardData.getData('text/plain');
+      document.execCommand('insertText', false, text);
+    });
+  }
+
+  updated(changedProperties) {
+    console.log("updated()", changedProperties);
+
+    if (changedProperties.has('content')) {
       const editor = this.renderRoot.querySelector('#editor')
-      console.log("editor: ", editor);
-
-      if (this.content) {
-        editor.innerHTML = this.content
-      }
-
-
-      editor.addEventListener('paste', (e) => {
-        e.preventDefault();
-
-        console.log("pasing: ", e);
-
-        let text = e.clipboardData.getData('text/plain');
-        document.execCommand('insertText', false, text);
-      });
-    }, 1000);
+      editor.innerHTML = this.content || ""
+    }
   }
 
   render() {
@@ -121,9 +130,8 @@ class WYSIWYGEditor extends LitElement {
     document.execCommand(command, false, value);
   }
   _updateContent(event) {
-    this.content = event.target.innerHTML;
     if (this.onChange) {
-      this.onChange(this.content, this.name)
+      this.onChange(event.target.innerHTML, this.name)
     }
   }
 }

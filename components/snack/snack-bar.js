@@ -6,14 +6,14 @@ import { html, css, LitElement } from "https://cdn.jsdelivr.net/npm/lit@2/+esm";
  * - Fixed long text issue
  */
 export function snack(message, { duration = 3000 } = {}) {
-    let snack = document.createElement('snack-bar')
+    let snack = document.createElement('app-snackbar')
     snack.message = message
     snack.duration = duration
     document.body.appendChild(snack)
     snack.show()
 }
 
-class SnackBar extends LitElement {
+class AppSnackBar extends LitElement {
     static styles = css`
     #snackbar {           
         min-width: 250px;        
@@ -76,4 +76,4 @@ class SnackBar extends LitElement {
     }
 }
 
-customElements.define('snack-bar', SnackBar)
+customElements.define('app-snackbar', AppSnackBar)

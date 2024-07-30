@@ -83,7 +83,7 @@ export class AppTable extends LitElement {
 
   render() {
     if (!this.data || this.data.length == 0) {
-      return this.options && this.options['noDataText'] ? html`<div>${this.options['noDataText']}</div>` : html`<div>NO DATA</div>`;
+      return this.options && this.options['noDataText'] ? this.options['noDataText'] : html`<div>NO DATA</div>`;
     }
 
     return html`

@@ -67,6 +67,7 @@ export class AppTable extends LitElement {
       columnConfig: { type: Array },
       data: { type: Array },
       hideColumnsOnMobile: { type: Array },
+      options: { type: Object }
     };
   }
   constructor() {
@@ -74,6 +75,7 @@ export class AppTable extends LitElement {
     this.columnConfig = [];
     this.data = [];
     this.hideColumnsOnMobile = [];
+    this.options = null
   }
   connectedCallback() {
     super.connectedCallback();
@@ -81,7 +83,7 @@ export class AppTable extends LitElement {
 
   render() {
     if (!this.data || this.data.length == 0) {
-      return html`<div>NO DATA</div>`;
+      return this.options && this.options['noDataText'] ? html`<div>${this.options['noDataText']}</div>` : html`<div>NO DATA</div>`;
     }
 
     return html`
